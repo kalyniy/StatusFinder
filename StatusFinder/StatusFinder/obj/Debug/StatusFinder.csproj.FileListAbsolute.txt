@@ -1,0 +1,10 @@
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\bin\Debug\StatusFinder.exe.config
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\bin\Debug\StatusFinder.exe
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\bin\Debug\StatusFinder.pdb
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.csproj.AssemblyReference.cache
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.Properties.Resources.resources
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.csproj.GenerateResource.cache
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.csproj.CoreCompileInputs.cache
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.exe
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.pdb
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.MainForm.resources
