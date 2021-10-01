@@ -3,6 +3,8 @@ namespace StatusFinder
 {
     public class Settings
     {
+        public static string BaseUrl = "https://open.faceit.com/data";
+        public static string ApiKey = "";
         public enum Prefix
         {
             Default,
@@ -10,8 +12,7 @@ namespace StatusFinder
             ESEA,
         }
         public static Prefix prefix = Prefix.Default;
-        public static string BaseUrl = "https://open.faceit.com/data";
-        public static string ApiKey = "";
+        
         public static string GetCurrentPrefix(Prefix prefix)
         {
             string retval = "";

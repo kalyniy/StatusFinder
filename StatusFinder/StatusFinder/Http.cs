@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,6 +32,23 @@ namespace StatusFinder
             using (StreamReader reader = new StreamReader(stream))
             {
                 return await reader.ReadToEndAsync();
+            }
+        }
+        public static async Task<string> GetAsyncFaceit(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Settings.BaseUrl);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Settings.ApiKey);
+                var message = await client.GetAsync(url);
+
+
+                if (message.StatusCode == HttpStatusCode.OK)
+                {
+                    return await message.Content.ReadAsStringAsync();
+                }
+
+                throw new Exception(await message.Content.ReadAsStringAsync());
             }
         }
         public static string Post(string uri, string data, string contentType, string method = "POST")

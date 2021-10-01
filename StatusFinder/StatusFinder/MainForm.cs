@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using static StatusFinder.Settings;
 namespace StatusFinder
 {
     public partial class MainForm : Form
@@ -19,21 +20,38 @@ namespace StatusFinder
             InitializeComponent();
         }
 
-        private void btnClipboard_Click(object sender, EventArgs e)
+        private async void btnClipboard_Click(object sender, EventArgs e)
         {
             if (Clipboard.ContainsText())
             {
                 string data = Clipboard.GetText();
                 string regex = @"STEAM_\d:\d:\d{1,}";
                 Regex ItemRegex = new Regex(regex, RegexOptions.Compiled);
-                foreach (Match match in ItemRegex.Matches(data))
+                MatchCollection list = ItemRegex.Matches(data);
+                foreach (Match match in list)
                 {
-                    string steamId = match.ToString(); // STEAM_0:Y:Z
-                    Player player = new Player(steamId);
-                    string html = Http.Get(player.steamUrl);
-                    string nickname = Helper.GetSteamNickname(html);
-                    player.nickname = nickname;
-                    Debug.WriteLine(player.nickname);
+                    string steamId = match.ToString();
+                    long id = Helper.GetLongID(steamId);
+                    string url = $"{BaseUrl}/v4/search/players?nickname={id}&offset=0&limit=20";
+                    try
+                    {
+                        var request = await Http.GetAsyncFaceit(url);
+                        Response r = JsonConvert.DeserializeObject<Response>(request);
+                        
+                        if (r.items.Length > 0)
+                        {
+                            foreach (Item item in r.items) // one steam account might have multiple faceit accounts.
+                            {
+                                List<Game> games = new List<Game>(item.games);
+                                var game = games.Where(x => x.name.Equals("csgo")).First();
+                                MessageBox.Show($"{item.nickname}, lvl {game.skill_level}");
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
         }

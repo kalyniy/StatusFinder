@@ -8,3 +8,6 @@ C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\Statu
 C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.exe
 C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.pdb
 C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.MainForm.resources
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dan\source\repos\StatusFinder\StatusFinder\StatusFinder\obj\Debug\StatusFinder.csproj.CopyComplete
