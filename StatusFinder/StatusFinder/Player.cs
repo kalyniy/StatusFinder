@@ -19,7 +19,8 @@ namespace StatusFinder
             this.steamUrl = Helper.GetProfileURL(steamId);
             try
             {
-                this.nickname =
+                string html = Helper.GetSteamProfile($"https://steamcommunity.com/profiles/{longId.ToString()}");
+                this.nickname = Helper.GetSteamNickname(html);
                 this.faceitUrl = GetFaceit(longId);
             }
             catch (Exception e)
